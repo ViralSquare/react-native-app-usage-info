@@ -20,3 +20,8 @@ const AppUsage = NativeModules.AppUsage
 export function multiply(a: number, b: number): Promise<number> {
   return AppUsage.multiply(a, b);
 }
+export function subtract(a: number, b: number): Promise<number> {
+  return AppUsage.subtract(a, b);
+}
+
+export default {multiply,subtract}
