@@ -1,6 +1,6 @@
 {
   "name": "react-native-app-usage",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "test",
   "main": "src/index.tsx",
   "module": "src/index.tsx",

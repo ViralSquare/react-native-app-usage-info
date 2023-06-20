@@ -57,23 +57,24 @@ public class AppUsageModule extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void getUsageLast24Hr(Callback callback) {
-
-    usageStatsManager = (UsageStatsManager) getReactApplicationContext().getSystemService(Context.USAGE_STATS_SERVICE);
     Calendar calendar = Calendar.getInstance();
     calendar.add(Calendar.DAY_OF_MONTH, -1); // Get usage stats for the past 24 hours
-
-    Log.d( "getUsageLast24Hr: ", String.valueOf(calendar.getTimeInMillis()));
     WritableArray stats = getAppUsage(calendar.getTimeInMillis(), System.currentTimeMillis());
     callback.invoke(stats);
 
   }
 
+  @ReactMethod
+  public void getUsageCustomRange(String startTime, String endTime, Callback callback) {
+    long starTimeL=Long.parseLong(startTime);
+    long endTimeL=Long.parseLong(endTime);
+    WritableArray stats = getAppUsage(starTimeL, endTimeL);
+    callback.invoke(stats);
+  }
+
   private WritableArray getAppUsage(long startTime, long endTime) {
 
     usageStatsManager = (UsageStatsManager) getReactApplicationContext().getSystemService(Context.USAGE_STATS_SERVICE);
-    Calendar calendar = Calendar.getInstance();
-    calendar.add(Calendar.DAY_OF_MONTH, -1); // Get usage stats for the past 24 hours
-
     Map<String, UsageStats> stats = usageStatsManager.queryAndAggregateUsageStats(
       startTime,
       endTime
