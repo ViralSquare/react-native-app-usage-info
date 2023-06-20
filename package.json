@@ -1,10 +1,10 @@
 {
   "name": "react-native-app-usage",
-  "version": "0.1.0",
+  "version": "0.1.6",
   "description": "test",
-  "main": "lib/commonjs/index.js",
-  "module": "lib/module/index.js",
-  "types": "lib/typescript/src/index.d.ts",
+  "main": "src/index.tsx",
+  "module": "src/index.tsx",
+  "types": "src/index.tsx",
   "react-native": "src/index.tsx",
   "source": "src/index",
   "files": [
@@ -30,7 +30,6 @@
     "test": "jest",
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
-    "prepack": "bob build",
     "release": "release-it",
     "example": "yarn --cwd example",
     "bootstrap": "yarn example && yarn install && yarn example pods",
@@ -41,13 +40,13 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/hassanaliviral/react-native-app-usage.git",
+  "repository": "https://github.com/ViralSquare/react-native-app-usage-info.git",
   "author": "Hassan Ali <“hali8629@gmail.com> (https://iamhassanali.github.io/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hassanaliviral/react-native-app-usage.git/issues"
+    "url": "https://github.com/ViralSquare/react-native-app-usage-info.git/issues"
   },
-  "homepage": "https://github.com/hassanaliviral/react-native-app-usage.git#readme",
+  "homepage": "https://github.com/ViralSquare/react-native-app-usage-info.git#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },

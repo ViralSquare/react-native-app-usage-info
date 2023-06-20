@@ -23,5 +23,17 @@ export function multiply(a: number, b: number): Promise<number> {
 export function subtract(a: number, b: number): Promise<number> {
   return AppUsage.subtract(a, b);
 }
+export function getUsageLast24Hr(callBack:any) {
+  return AppUsage.getUsageLast24Hr(callBack);
+}
+export function getUsageCustomRange(startTime:String,endTime:String, callBack:any) {
+  return AppUsage.getUsageCustomRange(startTime,endTime,callBack);
+}
+export function checkPackagePermission(): Promise<boolean> {
+  return AppUsage.checkPackagePermission();
+}
+export function requestUsagePermission(): void {
+  return AppUsage.requestUsagePermission();
+}
 
-export default {multiply,subtract}
+export default {multiply,subtract,checkPackagePermission,getUsageLast24Hr,getUsageCustomRange,requestUsagePermission}

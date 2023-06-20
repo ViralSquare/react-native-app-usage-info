@@ -5,17 +5,31 @@ This package will get the app usage stats
 ## Installation
 
 ```sh
-npm install react-native-app-usage
+yarn add react-native-app-usage
 ```
 
 ## Usage
 
 ```js
-import { multiply } from 'react-native-app-usage';
+import { requestUsagePermission,getUsageLast24Hr,checkPackagePermission } from 'react-native-app-usage';
 
 // ...
 
-const result = await multiply(3, 7);
+ checkPackagePermission().then(permissionGranted=>{
+        if(!permissionGranted)
+        {
+          requestUsagePermission() ;// If permission not granted then request for permission
+        }
+        else{
+          getUsageLast24Hr((data)=>{
+            let allAppUsage=data; // You can get all app usage data of past 24 Hrs
+          })
+        }
+        
+      }).catch(error=>{
+        console.log('error==>',error);
+      })
+
 ```
 
 ## Contributing
@@ -25,7 +39,3 @@ See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the 
 ## License
 
 MIT
-
----
-
-Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
